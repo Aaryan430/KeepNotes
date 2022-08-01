@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import './styles/loginStyle.css'
+import LoginDesign from './styles/LoginDesign'
 
 
 const Login = (props) => {
@@ -37,25 +39,33 @@ const Login = (props) => {
 
   return (
     <>
+      <LoginDesign />
+      <div className="container-fluid my-3  box" >
+        <i className="fa fa-key" aria-hidden="true"></i>
+        <div className="login-title">
+          <h2>Login</h2>
+        </div>
 
-    <div className="container my-3 " >
+        <form className="my-3 login-form" onSubmit={handleSubmit} autoComplete="off">
 
-          <h2>LogIn</h2>
-        <form className="my-3 " onSubmit={handleSubmit}>
-          <div className="mb-3 ">
-              <label htmlFor="email" className="form-label" value={credentials.email}> Email</label>
-              <input type="email" className="form-control" onChange={handleChange} id="email" name="email" aria-describedby="emailHelp" />
-              <div id='emailHelp' className='form-text'>We'll never share your email with anyone else.</div>
+          <div className="mb-3 input-box">
+            <input type="email" className=" input-val" onChange={handleChange} id="email" name="email" aria-describedby="emailHelp" />
+            <label htmlFor="email" className="form-control-label" value={credentials.email}>EMAIL </label>
+            <div id='emailHelp' className='authenticate'>We'll never share your email with anyone else.</div>
           </div>
 
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label" value={credentials.password}>Password</label>
-              <input type="password" className="form-control" onChange={handleChange} id="password" name="password" />
+          <div className="mb-3 input-box">
+            <input type="password" className=" input-val" onChange={handleChange} id="password" name="password" />
+            <label htmlFor="password" className="form-control-label" value={credentials.password}>PASSWORD</label>
           </div>
 
-          <button type="submit" className="btn btn-primary" >Login</button>
+          <button type="submit" className="login-button btn btn-outline-primary" >LOGIN</button>
         </form>
-    </div>
+        <div className="sign-up-link">
+        <p> New User?</p>
+        <Link className='btn btn-outline-dark mx-1' to='/signup' role="button" >Signup</Link>
+        </div>
+      </div>
     </>
   )
 }

@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import './styles/loginStyle.css'
+import LoginDesign from './styles/LoginDesign'
 
 const Signup = (props) => {
     const [credentials, setcredentials] = useState({name:"",email: "",password:"",confirmpassword:""})
@@ -39,30 +41,34 @@ const Signup = (props) => {
 
 
   return (
-    <div className="container my-3">
-    <h2>Create an Account to continue</h2>
-    <form className="my-3" onSubmit={handleSubmit}>
-        <div className="mb-3">
+    <>
+    <LoginDesign/>
+    <div className="container my-3 box">
+    <div className="login-title">
+    <h2>Create an Account</h2>
+    </div>
+    <form className="my-3 " onSubmit={handleSubmit}>
+        <div className="mb-3 input-box">
+            <input type="text" className="input-val" onChange={handleChange} id="name" name="name" aria-describedby="name"  /> 
             <label htmlFor="text" className="form-label"  value={credentials.name}>Name</label>
-            <input type="text" className="form-control" onChange={handleChange} id="name" name="name" aria-describedby="name"  /> 
         </div>
-        <div className="mb-3">
+        <div className="mb-3 input-box">
+            <input type="email" className="input-val" onChange={handleChange} id="email" name="email" aria-describedby="emailHelp"  /> 
             <label htmlFor="email" className="form-label"  value={credentials.email}>Email</label>
-            <input type="email" className="form-control" onChange={handleChange} id="email" name="email" aria-describedby="emailHelp"  /> 
-            <div id='emailHelp' className='form-text'>We'll never share your email with anyone else.</div>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 input-box">
+            <input type="password" className="input-val" onChange={handleChange}id="password" name="password" />
             <label htmlFor="password" className="form-label" value={credentials.password}>Password</label>
-            <input type="password" className="form-control" onChange={handleChange}id="password" name="password" />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 input-box">
+            <input type="confirmpassword" className="input-val" onChange={handleChange}id="confirmpassword" name="confirmpassword" />
             <label htmlFor="confirmpassword" className="form-label" value={credentials.confirmpassword}>Confirm Password</label>
-            <input type="confirmpassword" className="form-control" onChange={handleChange}id="confirmpassword" name="confirmpassword" />
         </div>
        
         <button  type="submit" className="btn btn-primary" >Sign Up</button>
     </form>
 </div>
+    </>
   )
 }
 

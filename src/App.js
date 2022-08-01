@@ -21,15 +21,15 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 100000);
   }
   return (
     <>
       <NoteState>
         <Router>
-          <Navbar />
+          <Navbar showAlert = {showAlert} />
           <Alert alert = {alert}/>
-          <div className="container">
+          <div className="">
             <Switch>
               <Route exact path="/">
                 <Home showAlert = {showAlert}/>
